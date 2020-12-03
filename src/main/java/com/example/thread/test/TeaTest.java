@@ -1,5 +1,6 @@
 package com.example.thread.test;
 
+import com.example.thread.util.ApiUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,34 +12,35 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TeaTest {
     public static void main(String[] args) throws InterruptedException {
-        log.debug("执行开始...");
         test1();
-        test2();
-        Thread.sleep(5000);
-        log.debug("执行结束...");
     }
 
-    public static void test1(){
+    public static void test1() throws InterruptedException{
         Thread t1 = new Thread(() -> {
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            log.debug("洗水壶");
+            ApiUtils.sleep(1);
+            log.debug("烧开水");
+            ApiUtils.sleep(5);
         }, "t1");
-        t1.start();
-        log.debug("t1执行结束...");
-    }
 
-    public static void test2(){
+
         Thread t2 = new Thread(() -> {
+            log.debug("洗茶壶");
+            ApiUtils.sleep(1);
+            log.debug("洗茶杯");
+            ApiUtils.sleep(2);
+            log.debug("拿茶叶");
+            ApiUtils.sleep(1);
             try {
-                Thread.sleep(5000);
+                t1.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            log.debug("泡茶开始....");
         }, "t2");
+
+        t1.start();
         t2.start();
-        log.debug("t2执行结束...");
+
     }
 }
