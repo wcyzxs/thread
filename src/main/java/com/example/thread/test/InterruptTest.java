@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2020/12/3 11:00
  */
 @Slf4j
-public class TestInterrupt {
+public class InterruptTest {
     public static void main(String[] args) throws  InterruptedException{
         //测试打断阻塞得线程
         test1();

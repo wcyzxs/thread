@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  *        (3)打断正在睡眠的线程，会抛出java.lang.InterruptedException: sleep interrupted异常
  */
 @Slf4j
-public class TestSleep {
+public class SleepTest {
     public static void main(String[] args) {
         Thread t1 = new Thread() {
             @Override

@@ -9,7 +9,7 @@ package com.example.thread.test;
  * 可以查看到栈帧的保存数据(包含局部变量，方法参数args,返回地址(记录当前方法执行完之后的返回地址),锁记录，操作数栈)，当执行完之后，会释放栈帧内存；
  * 数据结构：后进先出
  */
-public class TestFrames {
+public class FramesTest {
     public static void main(String[] args) {
         method1(10);
     }

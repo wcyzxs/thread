@@ -10,7 +10,7 @@ import static java.lang.Thread.sleep;
  * 测试join
  */
 @Slf4j
-public class TestJoin {
+public class JoinTest {
     static int a = 0;
     public static void main(String[] args) throws InterruptedException {
         test1();
